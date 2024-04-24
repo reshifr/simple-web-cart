@@ -1,0 +1,19 @@
+{
+    "name": "simple-web-cart/ui",
+    "description": "UI of Simple Web Cart",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleWebCart\\Ui\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Renol P. H.",
+            "email": "reshifr@gmail.com"
+        }
+    ]
+}
