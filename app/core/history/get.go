@@ -2,6 +2,7 @@ package history
 
 import (
 	"database/sql"
+	"time"
 )
 
 type Get struct {
@@ -14,7 +15,7 @@ func NewGet(db *sql.DB) *Get {
 func (g *Get) All(userId int) ([]*History, error) {
 	rows, err := g.db.Query(`
 		SELECT total, timestamp FROM history
-		WHERE user_id = ? ORDER BY timestamp ASC`,
+		WHERE user_id = ? ORDER BY timestamp DESC`,
 		userId,
 	)
 	if err != nil {
@@ -23,10 +24,12 @@ func (g *Get) All(userId int) ([]*History, error) {
 	history := []*History{}
 	for rows.Next() {
 		h := &History{}
-		err := rows.Scan(&h.Total, &h.Timestamp)
+		var timestamp time.Time
+		err := rows.Scan(&h.Total, &timestamp)
 		if err != nil {
 			return nil, err
 		}
+		h.Timestamp = timestamp.Unix()
 		history = append(history, h)
 	}
 	return history, nil

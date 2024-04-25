@@ -6,8 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	if (isset($_COOKIE['token']) && !is_null($_COOKIE['token'])) {
 		header("Location: http://{$_SERVER['HTTP_HOST']}/menu/product");
 		exit();
-	} else {
-		header("Location: http://{$_SERVER['HTTP_HOST']}");
-		exit();
 	}
+	header("Location: http://{$_SERVER['HTTP_HOST']}");
+	exit();
 }

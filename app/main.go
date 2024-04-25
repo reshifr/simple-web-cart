@@ -17,6 +17,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/login", handler.UserLogin)
+	router.HandleFunc("/logout", handler.UserLogout)
 	router.HandleFunc("/products", handler.ProductList)
 	router.HandleFunc("/products/{image}", handler.ProductImage)
 	router.HandleFunc("/cart", handler.Cart)

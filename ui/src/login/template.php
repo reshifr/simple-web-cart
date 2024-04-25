@@ -45,7 +45,7 @@
 							</form>
 						</td>
 					</tr>
-					<?php if (!is_null($error)) : ?>
+					<?php if (!empty($error)) : ?>
 						<tr>
 							<td style="text-align: center;">
 								<!-- Message Box -->

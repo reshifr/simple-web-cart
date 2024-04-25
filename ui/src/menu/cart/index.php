@@ -32,10 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			$total = $priceFmt->formatCurrency((float)$total, "IDR");
 			require_once(__DIR__ . '/../template.php');
 		} catch (ClientException $e) {
-			require_once(__DIR__ . '/../template.php');
+			header("Location: http://{$_SERVER['HTTP_HOST']}/login");
+			exit();
 		}
 	} else {
-		header("Location: http://{$_SERVER['HTTP_HOST']}/menu/cart");
+		header("Location: http://{$_SERVER['HTTP_HOST']}/login");
 		exit();
 	}
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -56,10 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			header("Location: http://{$_SERVER['HTTP_HOST']}/menu/cart");
 			exit();
 		} catch (ClientException $e) {
-			require_once(__DIR__ . '/../template.php');
+			header("Location: http://{$_SERVER['HTTP_HOST']}/login");
+			exit();
 		}
-	} else {
-		header("Location: http://{$_SERVER['HTTP_HOST']}/menu/cart");
-		exit();
 	}
 }

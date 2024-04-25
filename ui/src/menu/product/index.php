@@ -20,10 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			$productsNum = 5;
 			$productsLine = (int)ceil(sizeof($products) / (float)$productsNum);
 			$priceFmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
-			require_once(__DIR__ . '/../template.php');
 		} catch (ClientException $e) {
-			require_once(__DIR__ . '/../template.php');
 		}
+		require_once(__DIR__ . '/../template.php');
 	} else {
 		header("Location: http://{$_SERVER['HTTP_HOST']}");
 		exit();

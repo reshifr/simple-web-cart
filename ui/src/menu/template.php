@@ -15,17 +15,13 @@
 		justify-content: center;
 		align-items: center;
 	}
-
-	/* 
-	table {
-		border: 1px solid black
-	} */
 </style>
 
 <body>
 	<table style="border-collapse: collapse; width: 960px;">
 		<tr>
-			<td style="border: 2px solid black; height: 5vh;">
+			<td style="border: 2px solid black; height: 5vh; text-align: center;">
+				Simple Web App
 			</td>
 		</tr>
 		<!-- Menu -->
@@ -45,11 +41,54 @@
 								<img src="/menu/cart-icon.png" alt="cart-icon" style="width: 30px; height: 30px;">
 							</a>
 						</td>
+						<td>|</td>
+						<td style="padding-left: 5px; padding-right: 5px;">
+							<a onclick="deleteCookie('token')" href="/logout">Logout</a>
+							<script>
+								function deleteCookie(name) {
+									document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+								}
+							</script>
+						</td>
 				</table>
 			</td>
 		</tr>
 		<!-- Menu -->
-
+		<!-- History -->
+		<?php if (!empty($history)) : ?>
+			<tr>
+				<td style="border: 2px solid black;">
+					<table style="padding: 5px; width: 100%;">
+						<?php
+						foreach ($history as $h) :
+							$hTotal = $h['total'] ?? null;
+							$hTotal = $priceFmt->formatCurrency((float)$hTotal, "IDR");
+							$hTimestamp = date('l, F j, Y, g:i:s T', $h['timestamp'] ?? null)
+						?>
+							<tr>
+								<td>
+									<table style="padding: 10px; margin: 5px; border: 2px solid black; width: calc(100% - 10px);">
+										<tr>
+											<td style="width: 22%;">
+												<table>
+													<tr>
+														<td style="padding: 5px;">Total: <?= $hTotal ?></td>
+													</tr>
+													<tr>
+														<td style="padding: 5px;">Checkout date: <?= $hTimestamp ?></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
+				</td>
+			</tr>
+		<?php endif; ?>
+		<!-- History -->
 		<!-- Cart -->
 		<?php if (!empty($items)) : ?>
 			<tr>
@@ -105,12 +144,7 @@
 				</td>
 			</tr>
 		<?php endif; ?>
-
 		<!-- Cart -->
-
-
-
-
 		<!-- Product -->
 		<?php if (!empty($products)) : ?>
 			<tr>
@@ -169,8 +203,8 @@
 		<?php endif; ?>
 		<!-- Product -->
 		<tr>
-			<td style="border: 2px solid black; padding: 5px; text-align: center;">
-				2024 (C) Renol P. H.
+			<td style="border: 2px solid black; padding: 5px; text-align: center; height: 5vh;">
+				© <?= date('Y', time()) ?> Renol P. H.
 			</td>
 		</tr>
 	</table>
