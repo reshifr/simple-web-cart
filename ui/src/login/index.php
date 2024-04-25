@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		$body = json_decode($body, true);
 		$token = $body['token'] ?? null;
 		setcookie('token', $token, time() + (86400 * 30), "/");
+		setcookie('logout_token', $token, time() + (86400 * 30), "/");
 		header("Location: http://{$_SERVER['HTTP_HOST']}/menu");
 		exit();
 	} catch (ClientException $e) {
