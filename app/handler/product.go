@@ -39,7 +39,7 @@ func ProductImage(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == http.MethodGet {
 		vars := mux.Vars(r)
-		image := "build/images/" + vars["image"]
+		image := os.Getenv("IMAGES_DATA") + "/" + vars["image"]
 		imageFile, err := os.ReadFile(image)
 		if err != nil {
 			body := map[string]string{"error": "Image not found."}

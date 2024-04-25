@@ -16,9 +16,10 @@
 		align-items: center;
 	}
 
+	/* 
 	table {
 		border: 1px solid black
-	}
+	} */
 </style>
 
 <body>
@@ -27,8 +28,7 @@
 			<td style="border: 2px solid black; height: 5vh;">
 			</td>
 		</tr>
-
-		<!-- Bar -->
+		<!-- Menu -->
 		<tr>
 			<td style="border: 2px solid black;">
 				<table style="border: 0; padding: 5px;">
@@ -39,20 +39,59 @@
 						<td>|</td>
 						<td style="padding-left: 5px; padding-right: 5px;">
 							<a href="/menu/history">History</a>
+						</td>
+						<td style="text-align: right; padding-right: 5px; width: 100%;">
+							<a href="/menu/cart">
+								<img src="/menu/cart-icon.png" alt="cart-icon" style="width: 30px; height: 30px;">
+							</a>
+						</td>
 				</table>
 			</td>
 		</tr>
-		<!-- Bar -->
-
+		<!-- Menu -->
+		<!-- Product -->
 		<tr>
 			<td style="border: 2px solid black;">
-				C
+
+				<table style="padding: 5px; width: 100%;">
+					<tr>
+						<?php for ($i = 0; $i < $dataLine; ++$i) : ?>
+							<?php for ($j = 0; $j < $dataNum; ++$j) : ?>
+								<td style="width: 20%;">
+									<?php
+									$product = $data[$i * $dataNum + $j] ?? null;
+									if (!is_null($product)) :
+									?>
+										<table style="padding: 10px; margin: 5px; border: 2px solid black;">
+											<tr>
+												<td>
+													<img src="<?= $product['image_url'] ?>" alt="product-name" style="width: 100%;">
+												</td>
+											</tr>
+											<tr>
+												<td style="padding-top: 15px; text-align: center;">
+													<?= $product['name'] ?>
+												</td>
+											</tr>
+											<tr>
+												<td style="padding-top: 15px; text-align: center;">
+													<?= $priceFmt->formatCurrency((float)$product['price'], "IDR") ?>
+												</td>
+											</tr>
+										</table>
+									<?php endif; ?>
+								</td>
+							<?php endfor; ?>
+						<?php endfor; ?>
+					</tr>
+				</table>
+
 			</td>
 		</tr>
-
+		<!-- Product -->
 		<tr>
-			<td style="border: 2px solid black;">
-				D
+			<td style="border: 2px solid black; padding: 5px; text-align: center;">
+				2024 (C) Renol P. H.
 			</td>
 		</tr>
 	</table>
