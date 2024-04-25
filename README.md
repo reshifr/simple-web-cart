@@ -13,7 +13,7 @@
 
 ## How to run the server
 ```bash
-$ bash -x run.sh
+bash -x run.sh
 ```
 
 ## How to use the application
