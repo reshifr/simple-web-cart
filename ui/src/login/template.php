@@ -28,16 +28,18 @@
 							<form action="/login" method="POST">
 								<table>
 									<tr>
-										<td style="text-align: right;">Username</td>
+										<td style="text-align: right; padding: 5px;">Username</td>
 										<td><input type="text" name="username"></td>
 									</tr>
 									<tr>
-										<td style="text-align: right;">Password</td>
+										<td style="text-align: right; padding: 5px;">Password</td>
 										<td><input type="password" name="password"></td>
 									</tr>
 									<tr>
 										<td></td>
-										<td><input type="submit" value="Login"></td>
+										<td style="padding-top: 5px;">
+											<input type="submit" value="Login">
+										</td>
 									</tr>
 								</table>
 							</form>
