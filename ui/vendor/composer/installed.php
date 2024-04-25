@@ -3,7 +3,7 @@
         'name' => 'simple-web-cart/ui',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '06addd1e3c3c9aee2f1f92993eb8ea4140a51954',
+        'reference' => 'e45c5c36cae810aa4f2b8bc3c06c970117a0834e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -94,7 +94,7 @@
         'simple-web-cart/ui' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '06addd1e3c3c9aee2f1f92993eb8ea4140a51954',
+            'reference' => 'e45c5c36cae810aa4f2b8bc3c06c970117a0834e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

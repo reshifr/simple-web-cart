@@ -11,6 +11,7 @@ type Get struct {
 func NewGet(db *sql.DB) *Get {
 	return &Get{db: db}
 }
+
 func (g *Get) All(userId int, prefixUrl string) ([]*Item, error) {
 	rows, err := g.db.Query(`
 		SELECT product.price, cart.amount, product.name, product.image FROM product
