@@ -19,7 +19,7 @@ $ bash -x run.sh
 ## How to use the application
 1. Go to http://localhost:8080
 2. Login using this username list
-   - Username: robert, password: robert
-	 - Username: elon, password: elon
-	 - Username: zuck, password: zuck
+	* Username: **robert**, password: **robert**
+	* Username: **elon**, password: **elon**
+	* Username: **zuck**, password: **zuck**
 3. And Good luck!
