@@ -63,7 +63,8 @@
 						foreach ($history as $h) :
 							$hTotal = $h['total'] ?? null;
 							$hTotal = $priceFmt->formatCurrency((float)$hTotal, "IDR");
-							$hTimestamp = date('l, F j, Y, g:i:s T', $h['timestamp'] ?? null)
+							$hTimestamp = date('l, F j, Y, H:i:s T', $h['timestamp'] ?? null);
+							$hStatus = time() - ($h['timestamp'] ?? 0) <= 3600 * 3 ? "Open" : "Closed";
 						?>
 							<tr>
 								<td>
@@ -76,6 +77,9 @@
 													</tr>
 													<tr>
 														<td style="padding: 5px;">Checkout date: <?= $hTimestamp ?></td>
+													</tr>
+													<tr>
+														<td style="padding: 5px;">Status: <?= $hStatus ?></td>
 													</tr>
 												</table>
 											</td>

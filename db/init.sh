@@ -2,5 +2,5 @@
 
 DB=data/database.db
 
-sqlite3 $DB < db/schema.sql
-sqlite3 $DB < db/data.sql
+/usr/bin/sqlite3 $DB < db/schema.sql
+/usr/bin/sqlite3 $DB < db/data.sql
